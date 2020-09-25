@@ -101,23 +101,40 @@ public class Array {
 
 
         //백준 1546번 문제
-        int n = sc.nextInt();
-        float[] arr = new float[n];
-        float max = 0;
+//        int n = sc.nextInt();
+//        float[] arr = new float[n];
+//        float max = 0;
+//        for(int i = 0; i < n; i++) {
+//            arr[i] = sc.nextInt();
+//            if(max <= arr[i]) {
+//                max = arr[i];
+//            }
+//        }
+//        float sum = 0;
+//        for(int i = 0; i < n; i++) {
+//            arr[i] = (arr[i] / max) * 100;
+//            sum += arr[i];
+//
+//        }
+//
+//        System.out.println(sum / n);
+
+
+        //백준 8958번 문제
+        //X로 나누고 등차수열 합으로 풀었다. 다만 문자열 배열에 공백이 포함이 되어있어 필요없는 부분까지
+        //for문을 돌기에 시간을 잡아먹는것 같다
+        int n = Integer.parseInt(sc.nextLine());
         for(int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
-            if(max <= arr[i]) {
-                max = arr[i];
+            int score = 0;
+            String str = sc.nextLine();
+            String[] arr = str.split("X");
+            for(int j = 0; j < arr.length; j++) {
+                if(!arr[j].equals("")) {
+                    score += arr[j].length()*(arr[j].length()+1) / 2;
+                }
             }
+            System.out.println(score);
         }
-        float sum = 0;
-        for(int i = 0; i < n; i++) {
-            arr[i] = (arr[i] / max) * 100;
-            sum += arr[i];
-
-        }
-
-        System.out.println(sum / n);
 
      
     }

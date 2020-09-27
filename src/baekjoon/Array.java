@@ -1,5 +1,8 @@
 package baekjoon;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Array {
@@ -123,20 +126,45 @@ public class Array {
         //백준 8958번 문제
         //X로 나누고 등차수열 합으로 풀었다. 다만 문자열 배열에 공백이 포함이 되어있어 필요없는 부분까지
         //for문을 돌기에 시간을 잡아먹는것 같다
-        int n = Integer.parseInt(sc.nextLine());
-        for(int i = 0; i < n; i++) {
-            int score = 0;
-            String str = sc.nextLine();
-            String[] arr = str.split("X");
-            for(int j = 0; j < arr.length; j++) {
-                if(!arr[j].equals("")) {
-                    score += arr[j].length()*(arr[j].length()+1) / 2;
+//        int n = Integer.parseInt(sc.nextLine());
+//        for(int i = 0; i < n; i++) {
+//            int score = 0;
+//            String str = sc.nextLine();
+//            String[] arr = str.split("X");
+//            for(int j = 0; j < arr.length; j++) {
+//                if(!arr[j].equals("")) {
+//                    score += arr[j].length()*(arr[j].length()+1) / 2;
+//                }
+//            }
+//            System.out.println(score);
+//        }
+
+        //백준 4344번
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            int n = Integer.parseInt(br.readLine());
+            for(int i = 0; i < n; i++) {
+                String s = br.readLine();
+                String[] arr = s.split(" ");
+                int sum = 0;
+                for(int j = 1; j < arr.length; j++) {
+                    sum += Integer.parseInt(arr[j]);
                 }
+                int average = sum / Integer.parseInt(arr[0]);
+                float count = 0;
+                for(int j = 1; j < arr.length; j++) {
+                    if(average < Integer.parseInt(arr[j])) {
+                        count++;
+                    }
+                }
+                System.out.println(String.format("%.3f",(count / Integer.parseInt(arr[0]))*100)+"%");
             }
-            System.out.println(score);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-     
+
     }
 }
  

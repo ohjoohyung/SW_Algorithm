@@ -3,7 +3,7 @@ package baekjoon;
 import java.util.Scanner;
 
 public class While {
-    public static void main(String[] args) {
+    public static void main(String_Test[] args) {
 //        Scanner sc = new Scanner(System.in);
 //        while (true) {
 //            int a = sc.nextInt();

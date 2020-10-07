@@ -1,11 +1,7 @@
 package baekjoon;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class Function {
-    public static void main(String[] args) {
+    public static void main(String_Test[] args) {
 //        int[] a = {1,2,3,4,5,6,7,8,9,10};
 //        System.out.println(Function.sum(a));
 //

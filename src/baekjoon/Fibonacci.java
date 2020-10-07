@@ -3,7 +3,7 @@ package baekjoon;
 import java.util.Scanner;
 
 public class Fibonacci {
-    public static void main(String[] args) {
+    public static void main(String_Test[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         method(0, 1, 1, n);

@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Array {
-    public static void main(String[] args) {
+    public static void main(String_Test[] args) {
 
         //백준 10818번 문제
         //최댓값, 최솟값 출력 문제

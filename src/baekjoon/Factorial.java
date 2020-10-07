@@ -13,7 +13,7 @@ public class Factorial {
        return number * factorial(number-1);
     }
 
-    public static void main(String[] args) {
+    public static void main(String_Test[] args) {
         Scanner sc = new Scanner(System.in);
         int number = sc.nextInt();
         System.out.println(factorial(number));

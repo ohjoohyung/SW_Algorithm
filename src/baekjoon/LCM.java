@@ -3,7 +3,7 @@ package baekjoon;
 import java.util.Scanner;
 
 public class LCM {
-    public static void main(String[] args) {
+    public static void main(String_Test[] args) {
         
         //1934번 문제
         //1번째 방법

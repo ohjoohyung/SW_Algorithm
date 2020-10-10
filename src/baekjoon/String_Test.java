@@ -13,12 +13,44 @@ public class String_Test {
 
 
         //백준 11720번
+//        int n = Integer.parseInt(sc.nextLine());
+//        String s = sc.nextLine();
+//        int sum = 0;
+//        for(int i = 0; i < n; i++) {
+//            sum += s.charAt(i)-'0';
+//        }
+//        System.out.println(sum);
+        
+        //백준 10809번
+//        String s = sc.nextLine();
+//        int[] arr = new int[26];
+//        for(int i = 0; i < arr.length; i++) {
+//            arr[i] = -1;
+//        }
+//        for(int i = 0; i < s.length(); i++) {
+//            for(int j = 0; j < arr.length; j++) {
+//                if(s.charAt(i) -'a' == j && arr[j] == -1) {
+//                    arr[j] = i;
+//                    break;
+//                }
+//            }
+//        }
+//        for(int i : arr) {
+//            System.out.print(i+" ");
+//        }
+
+        //백준 2675번
         int n = Integer.parseInt(sc.nextLine());
-        String s = sc.nextLine();
-        int sum = 0;
         for(int i = 0; i < n; i++) {
-            sum += s.charAt(i)-'0';
+            String s = sc.nextLine();
+            String answer = "";
+            String[] sArr = s.split(" ");
+            for(int j = 0; j < sArr[1].length(); j++) {
+                for(int l = 0; l < Integer.parseInt(sArr[0]); l++) {
+                    answer += sArr[1].charAt(j);
+                }
+            }
+            System.out.println(answer);
         }
-        System.out.println(sum);
     }
 }

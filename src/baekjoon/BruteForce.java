@@ -52,21 +52,47 @@ public class BruteForce {
 
         //굳이 1부터 시작해서 생성자를 찾아갈 필요가 없다
         //생성자란 입력 숫자보다 최대 자릿수*9 보다 작은값이기에 이 값부터 시작하면 된다
-        String sNum = br.readLine();
-        int len = sNum.length();
-        int num = Integer.parseInt(sNum);
-        int answer = 0;
-        for(int i = num - (len * 9); i < num; i++) {
-            int sum = i, tmp = i;
-            while (tmp > 0) {
-                sum += tmp % 10;
-                tmp /= 10;
-            }
-            if(sum == num) {
-                answer = i;
-                break;
-            }
+//        String sNum = br.readLine();
+//        int len = sNum.length();
+//        int num = Integer.parseInt(sNum);
+//        int answer = 0;
+//        for(int i = num - (len * 9); i < num; i++) {
+//            int sum = i, tmp = i;
+//            while (tmp > 0) {
+//                sum += tmp % 10;
+//                tmp /= 10;
+//            }
+//            if(sum == num) {
+//                answer = i;
+//                break;
+//            }
+//        }
+//        System.out.println(answer);
+
+        //7568번
+        int n = Integer.parseInt(br.readLine());
+        String[] sArr = new String[n];
+        for(int i = 0; i < n; i++) {
+            sArr[i] = br.readLine();
         }
-        System.out.println(answer);
+
+        for(int i = 0; i < n; i++) {
+            String[] s1 = sArr[i].split(" ");
+            int weight1 = Integer.parseInt(s1[0]);
+            int height1 = Integer.parseInt(s1[1]);
+            int rank = 0;
+            for(int j = 0; j < n; j++) {
+                if(i == j) continue;
+                String[] s2 = sArr[j].split(" ");
+                int weight2 = Integer.parseInt(s2[0]);
+                int height2 = Integer.parseInt(s2[1]);
+                if(weight1 < weight2 && height1 < height2) {
+                    rank++;
+                }
+            }
+            System.out.print((rank+1)+" ");
+
+        }
+
     }
 }

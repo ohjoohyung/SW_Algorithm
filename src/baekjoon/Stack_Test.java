@@ -1,0 +1,135 @@
+package baekjoon;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+
+public class Stack_Test {
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        Stack<Integer> st = new Stack<Integer>();
+        //Stack st = new Stack();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+
+
+        //10773번
+        for(int i = 0; i < n; i++) {
+            int val = Integer.parseInt(br.readLine());
+            if(val > 0) {
+                st.push(val);
+            }else {
+                st.pop();
+            }
+        }
+        int sum = 0;
+        int len = st.size();
+        for(int i = 0; i < len; i++) {
+            sum+=st.pop();
+        }
+        System.out.println(sum);
+
+
+
+
+        //10828번번
+//		for(int i  0; i < n; i++) {
+//			String s = br.readLine();
+//			switch (s) {
+//			case "top": st.peek();
+//				break;
+//			case "size" : st.size();
+//				break;
+//			case "empty" : st.isEmpty();
+//				break;
+//			case "pop" : st.pop();
+//				break;
+//			default:
+//				String[] sArr = s.split(" ");
+//				st.push(Integer.parseInt(sArr[1]));
+//				break;
+//			}
+//		}
+
+//		for(int i = 0; i < n; i++) {
+//			String s = br.readLine();
+//			switch (s) {
+//			case "top":
+//				try {
+//					System.out.println(st.peek());
+//				} catch (Exception e) {
+//					System.out.println(-1);
+//				}
+//				break;
+//			case "size" : System.out.println(st.size());
+//				break;
+//			case "empty" :
+//				if(st.isEmpty()) {
+//					System.out.println(1);
+//				}else {
+//					System.out.println(0);
+//				}
+//				break;
+//			case "pop" :
+//				try {
+//					System.out.println(st.pop());
+//				} catch (Exception e) {
+//					System.out.println(-1);
+//				}
+//				break;
+//			default:
+//				String[] sArr = s.split(" ");
+//				st.push(Integer.parseInt(sArr[1]));
+//				break;
+//			}
+//		}
+
+
+
+
+    }
+
+
+
+
+}
+//class Stack {
+//	int[] arr = new int[10000];
+//    int top = -1;
+//	void push(int n) {
+//		arr[++top] = n;
+//	}
+//
+//	void pop() {
+//		if(top > -1) {
+//			System.out.println(arr[top]);
+//			top--;
+//		}else {
+//			System.out.println(-1);
+//		}
+//	}
+//
+//	void size() {
+//		System.out.println(top+1);
+//	}
+//
+//	void empty() {
+//		if(top > -1) {
+//			System.out.println(0);
+//		}else {
+//			System.out.println(1);
+//		}
+//	}
+//
+//
+//	void top() {
+//		if(top > -1) {
+//			System.out.println(arr[top]);
+//		}else {
+//			System.out.println(-1);
+//		}
+//	}
+//
+//}
+
+

@@ -3,9 +3,7 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Queue_Test {
     public static void main(String[] args) throws NumberFormatException, IOException {
@@ -73,28 +71,61 @@ public class Queue_Test {
 //        System.out.println(que.poll());
 
         //11866번
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int k = Integer.parseInt(st.nextToken());
-        Queue<Integer> que = new LinkedList<>();
-        for(int i = 1; i<=n; i++) {
-            que.add(i);
-        }
-        String s = "<";
-        while (!que.isEmpty()) {
-            for(int i=0; i<k; i++) {
-                int tmp = que.poll();
-                if(i==k-1) {
-                    s+= que.isEmpty() ? tmp+">" : tmp+", ";
-                    break;
-                }
-                que.add(tmp);
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        int n = Integer.parseInt(st.nextToken());
+//        int k = Integer.parseInt(st.nextToken());
+//        Queue<Integer> que = new LinkedList<>();
+//        for(int i = 1; i<=n; i++) {
+//            que.add(i);
+//        }
+//        String s = "<";
+//        while (!que.isEmpty()) {
+//            for(int i=0; i<k; i++) {
+//                int tmp = que.poll();
+//                if(i==k-1) {
+//                    s+= que.isEmpty() ? tmp+">" : tmp+", ";
+//                    break;
+//                }
+//                que.add(tmp);
+//            }
+//        }
+//        System.out.println(s);
+
+
+        //1966번
+        //프로그래머스에도 똑같은 문제가 있다
+        //근데 왜 제대로 하지 못했나... 반성한다
+        //핵심은 배열과 큐 출력값을 비교하며 원하는 위치값이 나올때까지 계속 반복하는 것
+        int num = Integer.parseInt(br.readLine());
+        Queue<Integer> que = new PriorityQueue<>(Collections.reverseOrder());
+        for(int i = 0; i < num; i++) {
+            String[] sArr1 = br.readLine().split(" ");
+            int n = Integer.parseInt(sArr1[0]);
+            int m = Integer.parseInt(sArr1[1]);
+            String[] sArr2 = br.readLine().split(" ");
+            int[] priority = new int[n];
+
+            for(int j = 0; j < n; j++) {
+                priority[j] = Integer.parseInt(sArr2[j]);
+                que.add(Integer.parseInt(sArr2[j]));
             }
+            int answer = 0;
+            while (!que.isEmpty()) {
+                for(int k = 0; k < n; k++) {
+                    if(que.peek() == priority[k]) {
+                        que.poll();
+                        answer++;
+                        if(k == m) {
+                            que.clear();
+                            break;
+                        }
+                    }
+                }
+            }
+            System.out.println(answer);
+
+
         }
-        System.out.println(s);
-
-
-
     }
 }
 

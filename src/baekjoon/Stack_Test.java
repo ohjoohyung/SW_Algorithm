@@ -7,27 +7,66 @@ import java.util.Stack;
 
 public class Stack_Test {
     public static void main(String[] args) throws NumberFormatException, IOException {
-        Stack<Integer> st = new Stack<Integer>();
+        Stack<Character> st = new Stack<>();
+        Stack<Character> st2 = new Stack<>();
         //Stack st = new Stack();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
+       //int n = Integer.parseInt(br.readLine());
+
+        //4949번
+        while (true) {
+            String s = br.readLine();
+            if(s.equals(".")) break;
+            for(int i=0; i<s.length(); i++) {
+                if(s.charAt(i) == ')') {
+                    if(st.isEmpty()) {
+                        st.push(s.charAt(i));
+                    }else if(!st.isEmpty() && st.peek() == '[') {
+                        st.push(s.charAt(i));
+                    }
+                }else if(s.charAt(i) == ']') {
+                    if (st.isEmpty()) {
+                        st.push(s.charAt(i));
+                    } else if (!st.isEmpty() && st.peek() == '(') {
+                        st.push(s.charAt(i));
+                    }
+                }
+
+                if(s.charAt(i) == '(' || s.charAt(i) == '[') {
+                    st.push(s.charAt(i));
+                }else if(!st.isEmpty()) {
+                    if(st.peek() == '(' && s.charAt(i) ==')') {
+                        st.pop();
+                    }else if(st.peek() == '[' && s.charAt(i) ==']') {
+                        st.pop();
+                    }
+                }
+            }
+            if(st.isEmpty()) {
+                System.out.println("yes");
+            }else {
+                System.out.println("no");
+            }
+            st.clear();
+
+        }
 
 
         //10773번
-        for(int i = 0; i < n; i++) {
-            int val = Integer.parseInt(br.readLine());
-            if(val > 0) {
-                st.push(val);
-            }else {
-                st.pop();
-            }
-        }
-        int sum = 0;
-        int len = st.size();
-        for(int i = 0; i < len; i++) {
-            sum+=st.pop();
-        }
-        System.out.println(sum);
+//        for(int i = 0; i < n; i++) {
+//            int val = Integer.parseInt(br.readLine());
+//            if(val > 0) {
+//                st.push(val);
+//            }else {
+//                st.pop();
+//            }
+//        }
+//        int sum = 0;
+//        int len = st.size();
+//        for(int i = 0; i < len; i++) {
+//            sum+=st.pop();
+//        }
+//        System.out.println(sum);
 
 
 

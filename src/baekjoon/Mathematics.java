@@ -3,6 +3,8 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Mathematics {
     public static void main(String[] args) throws IOException {
@@ -89,27 +91,37 @@ public class Mathematics {
 //        System.out.println(answer+1);
 
         //1193번
-        int x = Integer.parseInt(br.readLine());
-        int index = 1;
-        while (true) {
-            if(x==1) {
-                System.out.println("1/1");
-                break;
-            }
+//        int x = Integer.parseInt(br.readLine());
+//        int index = 1;
+//        while (true) {
+//            if(x==1) {
+//                System.out.println("1/1");
+//                break;
+//            }
+//
+//            if(index*(index+1)/2 < x && (index+1)*(index+2)/2 >= x) {
+//                int val = x - ((index*(index+1)/2)+1);
+//                if(index%2 == 0) {
+//                    System.out.println((index+1-val)+"/"+(val+1));
+//                }else {
+//                    System.out.println((val+1)+"/"+(index+1-val));
+//                }
+//                break;
+//            }
+//            index++;
+//        }
 
-            if(index*(index+1)/2 < x && (index+1)*(index+2)/2 >= x) {
-                int val = x - ((index*(index+1)/2)+1);
-                if(index%2 == 0) {
-                    System.out.println((index+1-val)+"/"+(val+1));
-                }else {
-                    System.out.println((val+1)+"/"+(index+1-val));
-                }
-                break;
-            }
-            index++;
-        }
+        //2869번
+        //Scanner 사용하니까 시간 초과
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        int v = Integer.parseInt(st.nextToken());
 
-
+        int day = 1;
+        v = v - a;
+        day = v%(a-b) == 0 ? v/(a-b) : v/(a-b) + 1;
+        System.out.println(day+1);
     }
 
     //이런식으로 while문을 이용해 계속 더한다..

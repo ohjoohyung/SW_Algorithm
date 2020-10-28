@@ -3,53 +3,104 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class Stack_Test {
     public static void main(String[] args) throws NumberFormatException, IOException {
-        Stack<Character> st = new Stack<>();
-        Stack<Character> st2 = new Stack<>();
+//        Stack<Character> st = new Stack<>();
+//        Stack<Character> st2 = new Stack<>();
         //Stack st = new Stack();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
        //int n = Integer.parseInt(br.readLine());
 
-        //4949번
-        while (true) {
-            String s = br.readLine();
-            if(s.equals(".")) break;
-            for(int i=0; i<s.length(); i++) {
-                if(s.charAt(i) == ')') {
-                    if(st.isEmpty()) {
-                        st.push(s.charAt(i));
-                    }else if(!st.isEmpty() && st.peek() == '[') {
-                        st.push(s.charAt(i));
-                    }
-                }else if(s.charAt(i) == ']') {
-                    if (st.isEmpty()) {
-                        st.push(s.charAt(i));
-                    } else if (!st.isEmpty() && st.peek() == '(') {
-                        st.push(s.charAt(i));
-                    }
-                }
+        //1874번
+        int n = Integer.parseInt(br.readLine());
+        int[] arr = new int[n];
+        Stack<Integer> st = new Stack<>();
+        for(int i = 0; i<n; i++) {
+            arr[i] = Integer.parseInt(br.readLine());
+        }
 
-                if(s.charAt(i) == '(' || s.charAt(i) == '[') {
-                    st.push(s.charAt(i));
-                }else if(!st.isEmpty()) {
-                    if(st.peek() == '(' && s.charAt(i) ==')') {
-                        st.pop();
-                    }else if(st.peek() == '[' && s.charAt(i) ==']') {
-                        st.pop();
+        List<Character> list = new ArrayList<>();
+        int num = 1;
+
+        int index = 0;
+        String answer = "";
+        while (index<n) {
+            if(st.isEmpty()) {
+                st.push(num++);
+                list.add('+');
+            }else {
+                if(arr[index] == st.peek()) {
+                    st.pop();
+                    list.add('-');
+                    index++;
+                }else {
+                    if(num > n) {
+                        answer = "NO";
+                        break;
+                    }else {
+                        st.push(num++);
+                        list.add('+');
                     }
+
                 }
             }
-            if(st.isEmpty()) {
-                System.out.println("yes");
-            }else {
-                System.out.println("no");
-            }
-            st.clear();
 
         }
+        if(!st.isEmpty()) {
+            System.out.println(answer);
+        }else {
+            for(Character c : list) {
+                System.out.println(c);
+            }
+        }
+
+
+
+
+
+
+
+        //4949번
+//        while (true) {
+//            String s = br.readLine();
+//            if(s.equals(".")) break;
+//            for(int i=0; i<s.length(); i++) {
+//                if(s.charAt(i) == ')') {
+//                    if(st.isEmpty()) {
+//                        st.push(s.charAt(i));
+//                    }else if(!st.isEmpty() && st.peek() == '[') {
+//                        st.push(s.charAt(i));
+//                    }
+//                }else if(s.charAt(i) == ']') {
+//                    if (st.isEmpty()) {
+//                        st.push(s.charAt(i));
+//                    } else if (!st.isEmpty() && st.peek() == '(') {
+//                        st.push(s.charAt(i));
+//                    }
+//                }
+//
+//                if(s.charAt(i) == '(' || s.charAt(i) == '[') {
+//                    st.push(s.charAt(i));
+//                }else if(!st.isEmpty()) {
+//                    if(st.peek() == '(' && s.charAt(i) ==')') {
+//                        st.pop();
+//                    }else if(st.peek() == '[' && s.charAt(i) ==']') {
+//                        st.pop();
+//                    }
+//                }
+//            }
+//            if(st.isEmpty()) {
+//                System.out.println("yes");
+//            }else {
+//                System.out.println("no");
+//            }
+//            st.clear();
+//
+//        }
 
 
         //10773번

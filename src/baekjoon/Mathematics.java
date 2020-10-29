@@ -113,15 +113,37 @@ public class Mathematics {
 
         //2869번
         //Scanner 사용하니까 시간 초과
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
-        int v = Integer.parseInt(st.nextToken());
 
-        int day = 1;
-        v = v - a;
-        day = v%(a-b) == 0 ? v/(a-b) : v/(a-b) + 1;
-        System.out.println(day+1);
+//        int a = Integer.parseInt(st.nextToken());
+//        int b = Integer.parseInt(st.nextToken());
+//        int v = Integer.parseInt(st.nextToken());
+//
+//        int day = 1;
+//        v = v - a;
+//        day = v%(a-b) == 0 ? v/(a-b) : v/(a-b) + 1;
+//        System.out.println(day+1);
+
+
+        //10250번
+        int T = Integer.parseInt(br.readLine());
+
+
+        for(int i=0; i<T; i++) {
+            String answer = "";
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int H = Integer.parseInt(st.nextToken());
+            int W = Integer.parseInt(st.nextToken());
+            int N = Integer.parseInt(st.nextToken());
+
+            answer += N % H == 0 ? H : N % H;
+            if(N % H == 0) {
+                answer += N/H > 9 ? N/H : "0"+N/H;
+            }else {
+                answer += (N / H)+1 > 9 ? (N / H)+1 : "0"+((N / H)+1);
+            }
+            System.out.println(answer);
+        }
+
     }
 
     //이런식으로 while문을 이용해 계속 더한다..

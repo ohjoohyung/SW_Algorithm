@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class Mathematics {
+    static int answer = 0;
     public static void main(String[] args) throws IOException {
         //1712번
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -125,25 +126,48 @@ public class Mathematics {
 
 
         //10250번
+//        int T = Integer.parseInt(br.readLine());
+//
+//
+//        for(int i=0; i<T; i++) {
+//            String answer = "";
+//            StringTokenizer st = new StringTokenizer(br.readLine());
+//            int H = Integer.parseInt(st.nextToken());
+//            int W = Integer.parseInt(st.nextToken());
+//            int N = Integer.parseInt(st.nextToken());
+//
+//            answer += N % H == 0 ? H : N % H;
+//            if(N % H == 0) {
+//                answer += N/H > 9 ? N/H : "0"+N/H;
+//            }else {
+//                answer += (N / H)+1 > 9 ? (N / H)+1 : "0"+((N / H)+1);
+//            }
+//            System.out.println(answer);
+//        }
+
+
+        //2775번
+        //재귀로 풀었다
         int T = Integer.parseInt(br.readLine());
-
-
         for(int i=0; i<T; i++) {
-            String answer = "";
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int H = Integer.parseInt(st.nextToken());
-            int W = Integer.parseInt(st.nextToken());
-            int N = Integer.parseInt(st.nextToken());
+            int k = Integer.parseInt(br.readLine());
+            int n = Integer.parseInt(br.readLine());
+            System.out.println(method(k,n));
 
-            answer += N % H == 0 ? H : N % H;
-            if(N % H == 0) {
-                answer += N/H > 9 ? N/H : "0"+N/H;
-            }else {
-                answer += (N / H)+1 > 9 ? (N / H)+1 : "0"+((N / H)+1);
-            }
-            System.out.println(answer);
         }
 
+    }
+
+    private static int method(int k, int n) {
+        if(k == 0) {
+            return n;
+        }
+
+        int tmp = 0;
+        for(int i = 1; i <= n; i++) {
+            tmp += method(k-1, i);
+        }
+        return tmp;
     }
 
     //이런식으로 while문을 이용해 계속 더한다..

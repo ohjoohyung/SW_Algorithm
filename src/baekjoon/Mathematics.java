@@ -148,11 +148,38 @@ public class Mathematics {
 
         //2775번
         //재귀로 풀었다
+//        int T = Integer.parseInt(br.readLine());
+//        for(int i=0; i<T; i++) {
+//            int k = Integer.parseInt(br.readLine());
+//            int n = Integer.parseInt(br.readLine());
+//            System.out.println(method(k,n));
+//
+//        }
+
+        //1011번
         int T = Integer.parseInt(br.readLine());
+
         for(int i=0; i<T; i++) {
-            int k = Integer.parseInt(br.readLine());
-            int n = Integer.parseInt(br.readLine());
-            System.out.println(method(k,n));
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
+
+            double val = y-x;
+            int n = 0;
+            int answer = 0;
+
+            n = (int)Math.sqrt(val);
+
+            if(n*n == val) {
+                answer = 2*n -1;
+            }else if(val <= n*n + n) {
+                answer = 2*n;
+            }else {
+                answer = 2*n+1;
+            }
+
+
+            System.out.println(answer);
 
         }
 

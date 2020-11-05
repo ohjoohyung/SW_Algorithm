@@ -157,31 +157,54 @@ public class Mathematics {
 //        }
 
         //1011번
-        int T = Integer.parseInt(br.readLine());
+//        int T = Integer.parseInt(br.readLine());
+//
+//        for(int i=0; i<T; i++) {
+//            StringTokenizer st = new StringTokenizer(br.readLine());
+//            int x = Integer.parseInt(st.nextToken());
+//            int y = Integer.parseInt(st.nextToken());
+//
+//            double val = y-x;
+//            int n = 0;
+//            int answer = 0;
+//
+//            n = (int)Math.sqrt(val);
+//
+//            if(n*n == val) {
+//                answer = 2*n -1;
+//            }else if(val <= n*n + n) {
+//                answer = 2*n;
+//            }else {
+//                answer = 2*n+1;
+//            }
+//
+//
+//            System.out.println(answer);
+//
+//        }
 
-        for(int i=0; i<T; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int x = Integer.parseInt(st.nextToken());
-            int y = Integer.parseInt(st.nextToken());
 
-            double val = y-x;
-            int n = 0;
-            int answer = 0;
 
-            n = (int)Math.sqrt(val);
-
-            if(n*n == val) {
-                answer = 2*n -1;
-            }else if(val <= n*n + n) {
-                answer = 2*n;
-            }else {
-                answer = 2*n+1;
+        //1978번
+        int N = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int answer = 0;
+        for(int i=0; i<N; i++) {
+            int num = Integer.parseInt(st.nextToken());
+            if(num == 1) continue;
+            if(num == 2) {
+                answer++;
+                continue;
             }
-
-
-            System.out.println(answer);
-
+            answer++;
+            for(int j=2; j<num; j++) {
+                if(num % j == 0) {
+                    answer--;
+                    break;
+                }
+            }
         }
+        System.out.println(answer);
 
     }
 

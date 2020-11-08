@@ -186,24 +186,57 @@ public class Mathematics {
 
 
         //1978번
+//        int N = Integer.parseInt(br.readLine());
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        int answer = 0;
+//        for(int i=0; i<N; i++) {
+//            int num = Integer.parseInt(st.nextToken());
+//            if(num == 1) continue;
+//            if(num == 2) {
+//                answer++;
+//                continue;
+//            }
+//            answer++;
+//            for(int j=2; j<num; j++) {
+//                if(num % j == 0) {
+//                    answer--;
+//                    break;
+//                }
+//            }
+//        }
+//        System.out.println(answer);
+
+
+
+        //2581번
+        int M = Integer.parseInt(br.readLine());
         int N = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int answer = 0;
-        for(int i=0; i<N; i++) {
-            int num = Integer.parseInt(st.nextToken());
-            if(num == 1) continue;
-            if(num == 2) {
-                answer++;
-                continue;
+
+        int sum = 0;
+        int min = Integer.MAX_VALUE;
+        String answer = "";
+        for(int i=M; i<=N; i++) {
+            boolean check = false;
+            if(i==0) check = true;
+            for(int j=2; j*j<=i; j++) {
+                if(i % j == 0) {
+                    check = true;
+                }
             }
-            answer++;
-            for(int j=2; j<num; j++) {
-                if(num % j == 0) {
-                    answer--;
-                    break;
+            if(!check) {
+                sum += i;
+                if(min > i) {
+                    min = i;
                 }
             }
         }
+
+        if(sum == 0) {
+            answer = "-1";
+        }else {
+            answer = sum + "\n" + min;
+        }
+
         System.out.println(answer);
 
     }

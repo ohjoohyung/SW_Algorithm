@@ -209,35 +209,58 @@ public class Mathematics {
 
 
         //2581번
-        int M = Integer.parseInt(br.readLine());
-        int N = Integer.parseInt(br.readLine());
+//        int M = Integer.parseInt(br.readLine());
+//        int N = Integer.parseInt(br.readLine());
+//
+//        int sum = 0;
+//        int min = Integer.MAX_VALUE;
+//        String answer = "";
+//        for(int i=M; i<=N; i++) {
+//            boolean check = false;
+//            if(i==0) check = true;
+//            for(int j=2; j*j<=i; j++) {
+//                if(i % j == 0) {
+//                    check = true;
+//                }
+//            }
+//            if(!check) {
+//                sum += i;
+//                if(min > i) {
+//                    min = i;
+//                }
+//            }
+//        }
+//
+//        if(sum == 0) {
+//            answer = "-1";
+//        }else {
+//            answer = sum + "\n" + min;
+//        }
+//
+//        System.out.println(answer);
 
-        int sum = 0;
-        int min = Integer.MAX_VALUE;
-        String answer = "";
+
+        //1929번
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int M = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
+        int[] arr = new int[N+1];
+        arr[1] = 1;
+        for(int i=2; i*i<=N; i++) {
+            for(int j=2*i; j <=N; j+=i) {
+                arr[j] = 1;
+            }
+            if(i == 2) {
+                arr[i] = 0;
+            }
+        }
         for(int i=M; i<=N; i++) {
-            boolean check = false;
-            if(i==0) check = true;
-            for(int j=2; j*j<=i; j++) {
-                if(i % j == 0) {
-                    check = true;
-                }
-            }
-            if(!check) {
-                sum += i;
-                if(min > i) {
-                    min = i;
-                }
+            if(arr[i] == 0) {
+                System.out.println(i);
             }
         }
 
-        if(sum == 0) {
-            answer = "-1";
-        }else {
-            answer = sum + "\n" + min;
-        }
 
-        System.out.println(answer);
 
     }
 

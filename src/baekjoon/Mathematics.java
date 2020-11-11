@@ -241,23 +241,52 @@ public class Mathematics {
 
 
         //1929번
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int M = Integer.parseInt(st.nextToken());
-        int N = Integer.parseInt(st.nextToken());
-        int[] arr = new int[N+1];
-        arr[1] = 1;
-        for(int i=2; i*i<=N; i++) {
-            for(int j=2*i; j <=N; j+=i) {
-                arr[j] = 1;
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        int M = Integer.parseInt(st.nextToken());
+//        int N = Integer.parseInt(st.nextToken());
+//        int[] arr = new int[N+1];
+//        arr[1] = 1;
+//        for(int i=2; i*i<=N; i++) {
+//            for(int j=2*i; j <=N; j+=i) {
+//                arr[j] = 1;
+//            }
+//            if(i == 2) {
+//                arr[i] = 0;
+//            }
+//        }
+//        for(int i=M; i<=N; i++) {
+//            if(arr[i] == 0) {
+//                System.out.println(i);
+//            }
+//        }
+
+
+
+        //4948번
+        int n, cnt = 0;
+        int[] arr;
+        while (true) {
+            n = Integer.parseInt(br.readLine());
+            if(n == 0) break;
+            arr = new int[2*n +1];
+            arr[0] = 1;
+            arr[1] = 1;
+            for(int i=2; i*i<=2*n; i++) {
+                for(int j=2*i; j<=2*n; j+=i) {
+                    arr[j] = 1;
+                }
             }
-            if(i == 2) {
-                arr[i] = 0;
+
+            for(int i = n; i<=2*n; i++) {
+                if(arr[i] == 0) {
+                    System.out.print(i + " ");
+                    cnt++;
+                }
+                System.out.println();
             }
-        }
-        for(int i=M; i<=N; i++) {
-            if(arr[i] == 0) {
-                System.out.println(i);
-            }
+            System.out.println(cnt);
+            cnt = 0;
+
         }
 
 

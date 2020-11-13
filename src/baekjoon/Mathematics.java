@@ -290,25 +290,43 @@ public class Mathematics {
 //        }
 
         //9020번
-        int T = Integer.parseInt(br.readLine());
-        for(int i=0; i<T; i++) {
-            int n = Integer.parseInt(br.readLine());
-            int[] arr = new int[n+1];
-            arr[0] = 1;
-            arr[1] = 1;
-            for(int j=2; j*j<=n; j++) {
-                for(int k=2*j; k<=n; k+=j) {
-                    arr[k] = 1;
-                }
-            }
+//        int T = Integer.parseInt(br.readLine());
+//        for(int i=0; i<T; i++) {
+//            int n = Integer.parseInt(br.readLine());
+//            int[] arr = new int[n+1];
+//            arr[0] = 1;
+//            arr[1] = 1;
+//            for(int j=2; j*j<=n; j++) {
+//                for(int k=2*j; k<=n; k+=j) {
+//                    arr[k] = 1;
+//                }
+//            }
+//
+//            for(int j=n/2; j>=0; j--) {
+//                if(arr[j] == 0 && arr[n-j] == 0) {
+//                    System.out.println(j + " " + (n -j));
+//                    break;
+//                }
+//            }
+//        }
 
-            for(int j=n/2; j>=0; j--) {
-                if(arr[j] == 0 && arr[n-j] == 0) {
-                    System.out.println(j + " " + (n -j));
-                    break;
-                }
-            }
-        }
+
+        //1085번
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int x = Integer.parseInt(st.nextToken());
+        int y = Integer.parseInt(st.nextToken());
+        int w = Integer.parseInt(st.nextToken());
+        int h = Integer.parseInt(st.nextToken());
+
+        int answer = 0;
+
+        int tmpR = w-x > x-0 ? x-0 : w-x;
+        int tmpC = h-y > y-0 ? y-0 : h-y;
+        answer = tmpR > tmpC ? tmpC : tmpR;
+        System.out.println(answer);
+
+
+
 
 
 

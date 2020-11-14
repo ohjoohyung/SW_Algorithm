@@ -312,17 +312,54 @@ public class Mathematics {
 
 
         //1085번
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int x = Integer.parseInt(st.nextToken());
-        int y = Integer.parseInt(st.nextToken());
-        int w = Integer.parseInt(st.nextToken());
-        int h = Integer.parseInt(st.nextToken());
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        int x = Integer.parseInt(st.nextToken());
+//        int y = Integer.parseInt(st.nextToken());
+//        int w = Integer.parseInt(st.nextToken());
+//        int h = Integer.parseInt(st.nextToken());
+//
+//        int answer = 0;
+//
+//        int tmpR = w-x > x-0 ? x-0 : w-x;
+//        int tmpC = h-y > y-0 ? y-0 : h-y;
+//        answer = tmpR > tmpC ? tmpC : tmpR;
+//        System.out.println(answer);
 
-        int answer = 0;
+        //3009번
+        int tmpX1 = 0;
+        int tmpY1 = 0;
+        int tmpX2 = 0;
+        int tmpY2 = 0;
+        int cntX = 1;
+        int cntY = 1;
+        for(int i=0; i<3; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
 
-        int tmpR = w-x > x-0 ? x-0 : w-x;
-        int tmpC = h-y > y-0 ? y-0 : h-y;
-        answer = tmpR > tmpC ? tmpC : tmpR;
+            if(i == 0) {
+                tmpX1 = x;
+                tmpY1 = y;
+                continue;
+            }
+
+
+            if(tmpX1 == x) {
+                cntX++;
+            }else {
+                tmpX2 = x;
+            }
+            if(tmpY1 == y){
+                cntY++;
+            }else {
+                tmpY2 = y;
+            }
+
+        }
+        String answer = "";
+        answer += cntX == 2 ? tmpX2 : tmpX1;
+        answer+=" ";
+        answer += cntY == 2 ? tmpY2 : tmpY1;
         System.out.println(answer);
 
 

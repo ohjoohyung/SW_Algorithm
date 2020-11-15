@@ -3,6 +3,7 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -326,41 +327,66 @@ public class Mathematics {
 //        System.out.println(answer);
 
         //3009번
-        int tmpX1 = 0;
-        int tmpY1 = 0;
-        int tmpX2 = 0;
-        int tmpY2 = 0;
-        int cntX = 1;
-        int cntY = 1;
-        for(int i=0; i<3; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int x = Integer.parseInt(st.nextToken());
-            int y = Integer.parseInt(st.nextToken());
+//        int tmpX1 = 0;
+//        int tmpY1 = 0;
+//        int tmpX2 = 0;
+//        int tmpY2 = 0;
+//        int cntX = 1;
+//        int cntY = 1;
+//        for(int i=0; i<3; i++) {
+//            StringTokenizer st = new StringTokenizer(br.readLine());
+//            int x = Integer.parseInt(st.nextToken());
+//            int y = Integer.parseInt(st.nextToken());
+//
+//            if(i == 0) {
+//                tmpX1 = x;
+//                tmpY1 = y;
+//                continue;
+//            }
+//
+//
+//            if(tmpX1 == x) {
+//                cntX++;
+//            }else {
+//                tmpX2 = x;
+//            }
+//            if(tmpY1 == y){
+//                cntY++;
+//            }else {
+//                tmpY2 = y;
+//            }
+//
+//        }
+//        String answer = "";
+//        answer += cntX == 2 ? tmpX2 : tmpX1;
+//        answer+=" ";
+//        answer += cntY == 2 ? tmpY2 : tmpY1;
+//        System.out.println(answer);
 
-            if(i == 0) {
-                tmpX1 = x;
-                tmpY1 = y;
-                continue;
-            }
+        //4153번
+//        while (true) {
+//            String str = br.readLine();
+//            if(str.equals("0 0 0")) break;
+//            String[] sArr = str.split(" ");
+//            int[] arr = new int[3];
+//            for(int i=0; i<3; i++) {
+//                arr[i] = Integer.parseInt(sArr[i]);
+//            }
+//            Arrays.sort(arr);
+//            String answer = "";
+//            if(arr[2] * arr[2] == arr[0]*arr[0] + arr[1]*arr[1]) {
+//                answer = "right";
+//            }else {
+//                answer = "wrong";
+//            }
+//            System.out.println(answer);
+//        }
 
+        //3053번
+        double R = Double.parseDouble(br.readLine());
+        System.out.printf("%.6f\n",Math.PI*R*R);
+        System.out.printf("%.6f",2*R*R);
 
-            if(tmpX1 == x) {
-                cntX++;
-            }else {
-                tmpX2 = x;
-            }
-            if(tmpY1 == y){
-                cntY++;
-            }else {
-                tmpY2 = y;
-            }
-
-        }
-        String answer = "";
-        answer += cntX == 2 ? tmpX2 : tmpX1;
-        answer+=" ";
-        answer += cntY == 2 ? tmpY2 : tmpY1;
-        System.out.println(answer);
 
 
 

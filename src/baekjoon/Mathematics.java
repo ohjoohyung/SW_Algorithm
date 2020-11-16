@@ -383,9 +383,49 @@ public class Mathematics {
 //        }
 
         //3053번
-        double R = Double.parseDouble(br.readLine());
-        System.out.printf("%.6f\n",Math.PI*R*R);
-        System.out.printf("%.6f",2*R*R);
+//        double R = Double.parseDouble(br.readLine());
+//        System.out.printf("%.6f\n",Math.PI*R*R);
+//        System.out.printf("%.6f",2*R*R);
+
+
+        //1002번
+        int T = Integer.parseInt(br.readLine());
+        for(int i=0; i<T; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int x1 = Integer.parseInt(st.nextToken());
+            int y1 = Integer.parseInt(st.nextToken());
+            int r1 = Integer.parseInt(st.nextToken());
+            int x2 = Integer.parseInt(st.nextToken());
+            int y2 = Integer.parseInt(st.nextToken());
+            int r2 = Integer.parseInt(st.nextToken());
+
+            int distance_pow = (int)(Math.pow(x1-x2,2) +Math.pow(y1-y2,2));
+            String answer = "";
+            //중점 같으면서 반지름도 같은 경우
+            if(x1 == x2 && y1==y2 && r1==r2) {
+                answer = "-1";
+
+                //두 원의 반지름 합보다 중점 거리가 더 길 때
+            }else if(distance_pow > Math.pow(r1+r2,2)) {
+                answer = "0";
+                //원 안에 있으나 내접하지 않을 때
+            }else if(distance_pow < Math.pow(r1-r2,2)) {
+                answer = "0";
+
+                //내접할 때
+            }else if(distance_pow == Math.pow(r1+r2,2)) {
+                answer = "1";
+
+                //외접할 때
+            }else if(distance_pow == Math.pow(r1-r2,2)) {
+                answer = "1";
+            }else {
+                answer = "2";
+            }
+            System.out.println(answer);
+
+
+        }
 
 
 

@@ -49,7 +49,7 @@ public class Test_1149 {
 //            answer = tmp < answer ? tmp : answer;
 //        }
 
-     
+
 
     }
 

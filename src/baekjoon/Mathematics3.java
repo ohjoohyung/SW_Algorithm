@@ -3,20 +3,32 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Mathematics3 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        while (true) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-            if(a == 0 && b == 0) break;
-            String answer = "neither";
-            if(b % a == 0) answer = "factor";
-            if(a % b == 0) answer = "multiple";
-            System.out.println(answer);
+        //5086번
+        //        while (true) {
+//            StringTokenizer st = new StringTokenizer(br.readLine());
+//            int a = Integer.parseInt(st.nextToken());
+//            int b = Integer.parseInt(st.nextToken());
+//            if(a == 0 && b == 0) break;
+//            String answer = "neither";
+//            if(b % a == 0) answer = "factor";
+//            if(a % b == 0) answer = "multiple";
+//            System.out.println(answer);
+//        }
+
+        //1037번
+        int N = Integer.parseInt(br.readLine());
+        int[] arr = new int[N];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for(int i=0; i<N; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
+        Arrays.sort(arr);
+        System.out.println(arr[0]*arr[N-1]);
     }
 }

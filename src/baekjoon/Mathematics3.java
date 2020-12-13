@@ -37,15 +37,32 @@ public class Mathematics3 {
         //난 소수를 구하고 그걸 이용해 인수를 판별해 소인수를 구해야한다고 생각해 복잡하게 풀었는데
         //그럴 필요없이 2부터 시작해서 나누기만 하면된다.
         //단, 1일때는 출력을 해줄 필요조차 없다
-        int N = Integer.parseInt(br.readLine());
-        int index = 2;
-        while (N >= index) {
-            if (N % index == 0) {
-                System.out.println(index);
-                N /= index;
-            }else {
-                index++;
+//        int N = Integer.parseInt(br.readLine());
+//        int index = 2;
+//        while (N >= index) {
+//            if (N % index == 0) {
+//                System.out.println(index);
+//                N /= index;
+//            }else {
+//                index++;
+//            }
+//        }
+
+        //2609번
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+
+        int GCD = 0;
+        for (int i = a > b ? b : a; i >= 1; i--) {
+            if (a % i == 0 && b % i == 0) {
+                GCD = i;
+                break;
             }
         }
+        int LCM = a * b / GCD;
+        System.out.println(GCD);
+        System.out.println(LCM);
+
     }
 }

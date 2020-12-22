@@ -87,24 +87,52 @@ public class Mathematics3 {
 //        }
 
         //3036번
-        int N = Integer.parseInt(br.readLine());
+//        int N = Integer.parseInt(br.readLine());
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        int[] numbers = new int[N];
+//        for (int i = 0; i < N; i++) {
+//            numbers[i] = Integer.parseInt(st.nextToken());
+//        }
+//        for (int i = 1; i < N; i++) {
+//            int gcdValue = getGCDValue(numbers[0], numbers[i]);
+//            System.out.println(numbers[0] / gcdValue + "/" + numbers[i] / gcdValue);
+//        }
+
+        //11050번
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        int N = Integer.parseInt(st.nextToken());
+//        int K = Integer.parseInt(st.nextToken());
+//        int answer = factorial(N) / (factorial(K) * factorial(N - K));
+//        System.out.println(answer);
+
+        //11051번
+        //파스칼의 삼각형
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] numbers = new int[N];
-        for (int i = 0; i < N; i++) {
-            numbers[i] = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
+        int K = Integer.parseInt(st.nextToken());
+        int[][] arr = new int[N+1][N+1];
+        for (int i = 0; i <= N; i++) {
+            for (int j = 0; j <= i; j++) {
+                if (i == j || j == 0) {
+                    arr[i][j] = 1;
+                }else {
+                    arr[i][j] = (arr[i-1][j-1] + arr[i-1][j]) % 10007;
+                }
+            }
         }
-        for (int i = 1; i < N; i++) {
-            int gcdValue = getGCDValue(numbers[0], numbers[i]);
-            System.out.println(numbers[0] / gcdValue + "/" + numbers[i] / gcdValue);
-        }
+        System.out.println(arr[N][K]);
+
+
 
     }
-    static int getGCDValue(int first, int second) {
-        while (second != 0) {
-            int remainder = first % second;
-            first = second;
-            second = remainder;
-        }
-        return first;
-    }
+
+
+//    static int getGCDValue(int first, int second) {
+//        while (second != 0) {
+//            int remainder = first % second;
+//            first = second;
+//            second = remainder;
+//        }
+//        return first;
+//    }
 }

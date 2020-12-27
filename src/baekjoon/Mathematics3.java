@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class Mathematics3 {
@@ -107,22 +109,63 @@ public class Mathematics3 {
 
         //11051번
         //파스칼의 삼각형
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
-        int[][] arr = new int[N+1][N+1];
-        for (int i = 0; i <= N; i++) {
-            for (int j = 0; j <= i; j++) {
-                if (i == j || j == 0) {
-                    arr[i][j] = 1;
-                }else {
-                    arr[i][j] = (arr[i-1][j-1] + arr[i-1][j]) % 10007;
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        int N = Integer.parseInt(st.nextToken());
+//        int K = Integer.parseInt(st.nextToken());
+//        int[][] arr = new int[N+1][N+1];
+//        for (int i = 0; i <= N; i++) {
+//            for (int j = 0; j <= i; j++) {
+//                if (i == j || j == 0) {
+//                    arr[i][j] = 1;
+//                }else {
+//                    arr[i][j] = (arr[i-1][j-1] + arr[i-1][j]) % 10007;
+//                }
+//            }
+//        }
+//        System.out.println(arr[N][K]);
+
+
+        //9375번
+        //프로그래머스 위장이랑 똑같은 문제
+//        int t = Integer.parseInt(br.readLine());
+//        for (int i = 0; i < t; i++) {
+//            int n = Integer.parseInt(br.readLine());
+//            Map<String, Integer> map = new HashMap<>();
+//            for (int j = 0; j < n; j++) {
+//                String[] clothes = br.readLine().split(" ");
+//                map.put(clothes[1], map.getOrDefault(clothes[1], 0) + 1);
+//            }
+//            int answer = 1;
+//            for (String key : map.keySet()) {
+//                answer *= map.get(key) + 1;
+//            }
+//            System.out.println(answer - 1);
+//        }
+
+        //1676번
+        //이렇게 풀었는데 굳이 10을 따지지 않고 2와 5만 따져도 똑같은 답이 나온다.
+        //그래서 10을 뺀 걸로 수정
+        int n = Integer.parseInt(br.readLine());
+        int answer = 0;
+        int[] count = new int[2];
+        for (int i = n; i >= 1; i--) {
+            int tmpNumber = i;
+            while (true) {
+                if (tmpNumber % 2 == 0) {
+                    count[0]++;
+                    tmpNumber /= 2;
+                }else if (tmpNumber % 5 == 0) {
+                    count[1]++;
+                    tmpNumber /= 5;
+                }
+
+                if (tmpNumber % 2 != 0 && tmpNumber % 5 != 0) {
+                    break;
                 }
             }
         }
-        System.out.println(arr[N][K]);
-
-
+        answer += Math.min(count[0], count[1]);
+        System.out.println(answer);
 
     }
 

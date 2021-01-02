@@ -51,6 +51,7 @@ public class Sort_Test {
 
     static void heapSort(int[] arr) {
         int len = arr.length;
+
         for(int i=len/2-1; i>=0; i--) {
             heapify(arr, i, len);
         }
@@ -59,8 +60,6 @@ public class Sort_Test {
             swap(i, 0, arr);
             heapify(arr, 0, i);
         }
-
-
     }
 
     static void heapify(int[] arr, int index, int len) {

@@ -3,6 +3,7 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -10,17 +11,9 @@ import java.util.StringTokenizer;
 public class Mathematics {
     static int answer = 0;
     public static void main(String[] args) throws IOException {
-        //1712번
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//        String s = br.readLine();
-//        String[] sArr = s.split(" ");
-//        long n = 0;
-//        if((Long.parseLong(sArr[2])-Long.parseLong(sArr[1])) <= 0) {
-//            n = -1;
-//        }else{
-//            n = Long.parseLong(sArr[0]) / (Long.parseLong(sArr[2])-Long.parseLong(sArr[1])) + 1;
-//        }
-//        System.out.println(n);
+
 
 
         //5073번
@@ -51,138 +44,16 @@ public class Mathematics {
 //        }
 
 
-        //2839번
-//        int n = Integer.parseInt(br.readLine());
-//        int answer = 3000;
-////        if(n % 5 == 0) {
-////            answer = n / 5;
-////        }else if((n % 5) % 3 == 0) {
-////            answer = n / 5 + (n % 5) / 3;
-////        }else if(n % 3 == 0) {
-////            answer = n / 3;
-////        }else {
-////            answer = -1;
-////        }
-//        for(int i = 0; i <= n/3; i++) {
-//            for(int j = 0; j <= n/5; j++) {
-//                if(3*i + 5*j == n) {
-//                    if(i+j < answer) {
-//                        answer = i+j;
-//                    }
-//                }
-//            }
-//        }
-//        if(answer == 3000) answer = -1;
-//        System.out.println(answer);
 
 
-        //2292번
-//        int n = Integer.parseInt(br.readLine());
-//        int answer=1;
-//        while (true) {
-//            if(n==1) {
-//                answer=0;
-//                break;
-//            }
-//            if(3*(int)Math.pow(answer,2) - 3*answer + 2 <= n &&
-//                    3*(int)Math.pow(answer+1,2) - 3*(answer+1) + 2 > n) {
-//                break;
-//            }
-//            answer++;
-//        }
-//        System.out.println(answer+1);
-
-        //1193번
-//        int x = Integer.parseInt(br.readLine());
-//        int index = 1;
-//        while (true) {
-//            if(x==1) {
-//                System.out.println("1/1");
-//                break;
-//            }
-//
-//            if(index*(index+1)/2 < x && (index+1)*(index+2)/2 >= x) {
-//                int val = x - ((index*(index+1)/2)+1);
-//                if(index%2 == 0) {
-//                    System.out.println((index+1-val)+"/"+(val+1));
-//                }else {
-//                    System.out.println((val+1)+"/"+(index+1-val));
-//                }
-//                break;
-//            }
-//            index++;
-//        }
-
-        //2869번
-        //Scanner 사용하니까 시간 초과
-
-//        int a = Integer.parseInt(st.nextToken());
-//        int b = Integer.parseInt(st.nextToken());
-//        int v = Integer.parseInt(st.nextToken());
-//
-//        int day = 1;
-//        v = v - a;
-//        day = v%(a-b) == 0 ? v/(a-b) : v/(a-b) + 1;
-//        System.out.println(day+1);
 
 
-        //10250번
-//        int T = Integer.parseInt(br.readLine());
-//
-//
-//        for(int i=0; i<T; i++) {
-//            String answer = "";
-//            StringTokenizer st = new StringTokenizer(br.readLine());
-//            int H = Integer.parseInt(st.nextToken());
-//            int W = Integer.parseInt(st.nextToken());
-//            int N = Integer.parseInt(st.nextToken());
-//
-//            answer += N % H == 0 ? H : N % H;
-//            if(N % H == 0) {
-//                answer += N/H > 9 ? N/H : "0"+N/H;
-//            }else {
-//                answer += (N / H)+1 > 9 ? (N / H)+1 : "0"+((N / H)+1);
-//            }
-//            System.out.println(answer);
-//        }
 
 
-        //2775번
-        //재귀로 풀었다
-//        int T = Integer.parseInt(br.readLine());
-//        for(int i=0; i<T; i++) {
-//            int k = Integer.parseInt(br.readLine());
-//            int n = Integer.parseInt(br.readLine());
-//            System.out.println(method(k,n));
-//
-//        }
 
-        //1011번
-//        int T = Integer.parseInt(br.readLine());
-//
-//        for(int i=0; i<T; i++) {
-//            StringTokenizer st = new StringTokenizer(br.readLine());
-//            int x = Integer.parseInt(st.nextToken());
-//            int y = Integer.parseInt(st.nextToken());
-//
-//            double val = y-x;
-//            int n = 0;
-//            int answer = 0;
-//
-//            n = (int)Math.sqrt(val);
-//
-//            if(n*n == val) {
-//                answer = 2*n -1;
-//            }else if(val <= n*n + n) {
-//                answer = 2*n;
-//            }else {
-//                answer = 2*n+1;
-//            }
-//
-//
-//            System.out.println(answer);
-//
-//        }
+
+
+
 
 
 
@@ -389,43 +260,50 @@ public class Mathematics {
 
 
         //1002번
-        int T = Integer.parseInt(br.readLine());
-        for(int i=0; i<T; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int x1 = Integer.parseInt(st.nextToken());
-            int y1 = Integer.parseInt(st.nextToken());
-            int r1 = Integer.parseInt(st.nextToken());
-            int x2 = Integer.parseInt(st.nextToken());
-            int y2 = Integer.parseInt(st.nextToken());
-            int r2 = Integer.parseInt(st.nextToken());
+//        int T = Integer.parseInt(br.readLine());
+//        for(int i=0; i<T; i++) {
+//            StringTokenizer st = new StringTokenizer(br.readLine());
+//            int x1 = Integer.parseInt(st.nextToken());
+//            int y1 = Integer.parseInt(st.nextToken());
+//            int r1 = Integer.parseInt(st.nextToken());
+//            int x2 = Integer.parseInt(st.nextToken());
+//            int y2 = Integer.parseInt(st.nextToken());
+//            int r2 = Integer.parseInt(st.nextToken());
+//
+//            int distance_pow = (int)(Math.pow(x1-x2,2) +Math.pow(y1-y2,2));
+//            String answer = "";
+//            //중점 같으면서 반지름도 같은 경우
+//            if(x1 == x2 && y1==y2 && r1==r2) {
+//                answer = "-1";
+//
+//                //두 원의 반지름 합보다 중점 거리가 더 길 때
+//            }else if(distance_pow > Math.pow(r1+r2,2)) {
+//                answer = "0";
+//                //원 안에 있으나 내접하지 않을 때
+//            }else if(distance_pow < Math.pow(r1-r2,2)) {
+//                answer = "0";
+//
+//                //내접할 때
+//            }else if(distance_pow == Math.pow(r1+r2,2)) {
+//                answer = "1";
+//
+//                //외접할 때
+//            }else if(distance_pow == Math.pow(r1-r2,2)) {
+//                answer = "1";
+//            }else {
+//                answer = "2";
+//            }
+//            System.out.println(answer);
+//
+//
+//        }
 
-            int distance_pow = (int)(Math.pow(x1-x2,2) +Math.pow(y1-y2,2));
-            String answer = "";
-            //중점 같으면서 반지름도 같은 경우
-            if(x1 == x2 && y1==y2 && r1==r2) {
-                answer = "-1";
+        //10757번
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        BigInteger bigInteger1 = new BigInteger(st.nextToken());
+        BigInteger bigInteger2 = new BigInteger(st.nextToken());
+        System.out.println(bigInteger1.add(bigInteger2));
 
-                //두 원의 반지름 합보다 중점 거리가 더 길 때
-            }else if(distance_pow > Math.pow(r1+r2,2)) {
-                answer = "0";
-                //원 안에 있으나 내접하지 않을 때
-            }else if(distance_pow < Math.pow(r1-r2,2)) {
-                answer = "0";
-
-                //내접할 때
-            }else if(distance_pow == Math.pow(r1+r2,2)) {
-                answer = "1";
-
-                //외접할 때
-            }else if(distance_pow == Math.pow(r1-r2,2)) {
-                answer = "1";
-            }else {
-                answer = "2";
-            }
-            System.out.println(answer);
-
-
-        }
 
 
 

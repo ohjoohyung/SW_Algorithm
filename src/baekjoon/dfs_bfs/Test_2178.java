@@ -1,4 +1,5 @@
-package baekjoon;
+package baekjoon.dfs_bfs;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,11 +7,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BFS_Test {
+public class Test_2178 {
 
-
-
-    //2178번
     //BFS 활용하는게 어렵네.. 설계를 하고 코딩을 하자
     static int[] dRow = {-1,1,0,0};
     static int[] dCol = {0,0,-1,1};

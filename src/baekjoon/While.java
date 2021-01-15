@@ -39,12 +39,5 @@ public class While {
             count++;
         }
         System.out.println(count);
-
-
-
-
-
     }
-
-
 }

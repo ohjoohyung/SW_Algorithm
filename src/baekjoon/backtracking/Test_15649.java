@@ -1,9 +1,9 @@
-package baekjoon;
+package baekjoon.backtracking;
 
 
 import java.util.Scanner;
 
-public class BackTracking {
+public class Test_15649 {
     //15649번
     static int n;
     static int m;
@@ -37,8 +37,8 @@ public class BackTracking {
             backTracking(cnt+1);
             check[i] = false;
         }
-        }
     }
+}
 
 
 
